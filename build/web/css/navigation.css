@@ -1,0 +1,72 @@
+@CHARSET "ISO-8859-1";
+
+.tab-pane {
+	float: left;
+	width: 100%;
+	padding: 3px;
+	vertical-align: bottom;
+	border-bottom: solid 1px black;
+}
+
+
+/* settings for the unordered list of 1st level tab menu */
+.tab-pane ul {
+	list-style: none;
+	margin: 0;
+	padding: 2px 10px 0px 2px;
+}
+
+/* settings for the list elements of 1st level tab menu */
+.tab-pane ul li {
+	float: left;
+	margin: 0;
+	padding-bottom: 0px;
+	padding-right: 10px;
+	margin-right: 4px;
+	border-right: 1px solid black;
+	list-style-type: none;
+}
+
+/* settings for the ACTIVE tab in 1st level tab menu */
+.tab-pane ul li .tab-active {
+	float: left;
+	padding-left: 6px;
+}
+
+.tab-pane ul li .tab-active span {
+	display: block;
+	float: left;
+	padding: 4px 6px 6px 0px;
+}
+
+/* settings for INACTIVE tabs in 1st level tab menu */
+.tab-pane ul a {
+	padding: 0px 0px 0px 6px;
+}
+
+.tab-pane ul a span {
+	padding: 4px 6px 5px 0px;
+}
+
+.tab-pane ul a,.tab-pane ul a span {
+	display: block;
+	float: left;
+}
+
+/* Commented backslash hack hides rule from IE5-Mac \*/
+.tab-pane ul a,.tab-pane ul a span {
+	float: none;
+}
+
+div.secureLink {
+	margin-left: 8px;
+	background-color: transparent;
+	background-image: url(../images/padlock.gif);
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+
+.secureLink a {
+	padding-left: 0px;
+	margin-left: 10px;
+}

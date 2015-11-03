@@ -1,0 +1,105 @@
+@CHARSET "ISO-8859-1";
+
+
+div.index_menu {
+	background-color: white;
+	border-bottom: 1px solid black;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-top: 1px solid black;
+	display: block;
+	font-family: Arial;
+	font-size: 13px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 10px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 6px;
+	width: 100%;
+}
+
+div.index_menu_left {
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-top-width: 0px;
+	display: block;
+	float: left;
+	font-size: 13px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 40%;
+}
+
+div.index_menu_right {
+	text-align: right;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-top-width: 0px;
+	display: block;
+	float: left;
+	font-size: 13px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 60%;
+}
+
+/* settings for the unordered list of 1st level tab menu */
+.index_menu_right ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 2px 10px 0px 2px;
+}
+
+/* settings for the list elements of 1st level tab menu */
+.index_menu_right ul li {
+	float: left;
+	/*margin: 0;
+	
+	padding-bottom: 0px;
+	
+	
+	margin-right: 4px;
+	*/
+	margin-left: 6px;
+	padding-right: 10px;
+	border-right: 1px solid black;
+	list-style-type: none;
+	
+	
+}
+
+/* settings for the ACTIVE tab in 1st level tab menu */
+.index_menu_right ul li .index_menu_right {
+	float: left;
+	padding-left: 6px;
+}
+
+.index_menu_right ul li .index_menu_right span {
+	display: block;
+	float: left;
+	padding: 4px 6px 6px 0px;
+}

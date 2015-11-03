@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+
+<title>ENSAT Registry News and Updates</title>
+<link>https://registry.ensat.org/news/news.jsp</link>
+<description>News and Updates</description>
+
+<item>
+<title>March 2015 Updates</title>
+<link>https://registry.ensat.org/news/2015/03/news.jsp</link>
+<guid>https://registry.ensat.org/news/2015/03/news.jsp</guid>
+<pubDate>Fri, 19 Mar 2015 17:00:00 GMT</pubDate>
+<description>Latest updates to the ENSAT registry including: notification features, membership access upgrade, several bug-fixes and three new study protocols.</description>
+</item>
+
+<item>
+<title>August 2014 Updates</title>
+<link>https://registry.ensat.org/news/2014/08/news.jsp</link>
+<guid>https://registry.ensat.org/news/2014/08/news.jsp</guid>
+<pubDate>Mon, 25 Aug 2014 15:20:00 GMT</pubDate>
+<description>Latest updates to the ENSAT registry including: various security enhancements and code efficiency upgrades.</description>
+</item>
+
+<item>
+<title>July 2014 Updates</title>
+<link>https://registry.ensat.org/news/2014/07/news.jsp</link>
+<guid>https://registry.ensat.org/news/2014/07/news.jsp</guid>
+<pubDate>Thu, 10 Jul 2014 11:43:00 GMT</pubDate>
+<description>Latest updates to the ENSAT registry including: transfer function from NAPACA can be accessed from main detail page, ADIUVO presence, specific hormonal values and presence of complicating conditions.</description>
+</item>
+
+<item>
+<title>June 2014 Updates</title>
+<link>https://registry.ensat.org/news/2014/06/news.jsp</link>
+<guid>https://registry.ensat.org/news/2014/06/news.jsp</guid>
+<pubDate>Tue, 10 Jun 2014 14:21:00 GMT</pubDate>
+<description>Latest updates to the ENSAT registry including: the MAPP-Prono study (with many additional data points in pheo), additional points to the EURINE-ACT export, a new connection between search and export, bugs fixed in pheo follow-up and the NAPACA to PMT transfer function.</description>
+</item>
+
+</channel>
+</rss>
