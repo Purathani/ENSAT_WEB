@@ -1658,6 +1658,7 @@ public class SummaryInfo {
         }
     }
 
+    //This method was modified by Purathani 
     public String markAliquotsAsTransferred(HttpServletRequest request, Enumeration inputs, Connection conn) {
 
         Vector<Vector> aliquotValues = new Vector<Vector>();
@@ -1739,6 +1740,7 @@ public class SummaryInfo {
                     destination_center_map.put( aliquotIn.get(1),transfer_group_id);
                 }
                 
+                // Insert biomaterial detail which are to be transferred into Acc_biomaterial_aliquots_transfer table with unique group_id
                 String insertTransferBioMaterialSQL = "INSERT INTO ACC_BIOMATERIAL_ALIQUOTS_TRANSFER(ACC_BIOMATERIAL_ID,ENSAT_ID,"
                         + "CENTER_ID,ACC_BIOMATERIAL_LOCATION_ID,ACC_BIOMATERIAL_TRANSFER_GROUP_ID,DESTINATION_CENTER_ID,TRANSFERED_DATE,STATUS)"
                         + "VALUES"
@@ -2322,6 +2324,7 @@ public class SummaryInfo {
         return sheetOutput;
     }
 
+    //This method was modified by Purathani 
     public String getAliquotsTransferred(Connection conn, String centerid) {
 
         String outputHtml = "";
@@ -2329,6 +2332,7 @@ public class SummaryInfo {
         int center_count = 1;
         Vector<Vector> aliquotsTransferred = new Vector<Vector>();
         try {
+            // Get transferred biomaterial sample detail from transfer table for given center id
             //String sql = "SELECT center_id,ensat_id,material,aliquot_sequence_id,bio_id,material_transferred FROM ACC_Biomaterial_Freezer_Information WHERE center_id=? AND material_transferred!=?;";
             String sql = "SELECT F.center_id, F.ensat_id, F.material,F.aliquot_sequence_id,F.bio_id,F.material_transferred, T.status, T.transfered_date FROM " +
                            "ACC_Biomaterial_Freezer_Information as F left join acc_biomaterial_aliquots_transfer as T ON " +
@@ -2405,7 +2409,7 @@ public class SummaryInfo {
         return outputHtml;
     }
     
-    
+     //This method was created by Purathani 
     public String getAliquotsTransferredDetail(Connection conn, String centerid) {
 
         String outputHtml = "";
@@ -2439,12 +2443,14 @@ public class SummaryInfo {
         return outputHtml;
     }
     
+    //This method was created by Purathani 
     public String generateTransferredAliquotsTable(Connection conn, String centerid, String group_id) {
 
         String outputHtml = "";
        
         Vector<Vector> aliquotsTransferred = new Vector<Vector>();
         try {
+            // Get biomaterial sample detail which are to be transferred to a destination center
             //String sql = "SELECT center_id,ensat_id,material,aliquot_sequence_id,bio_id,material_transferred FROM ACC_Biomaterial_Freezer_Information WHERE center_id=? AND material_transferred!=?;";
             String sql = "SELECT F.center_id, F.ensat_id, F.material,F.aliquot_sequence_id,F.bio_id,F.material_transferred, T.status, T.transfered_date FROM " +
                            "ACC_Biomaterial_Freezer_Information as F left join acc_biomaterial_aliquots_transfer as T ON " +
@@ -2520,8 +2526,10 @@ public class SummaryInfo {
         return outputHtml;
     }
     
+    // This method was created by Purathani
     public int getNextTransferGroupId(Connection conn)
     {
+        // generate unique transfer group id 
         int trans_group_id = 0;
            try {
                String seq_val = ""; 

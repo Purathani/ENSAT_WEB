@@ -46,7 +46,9 @@ public class GenerateExcel extends HttpServlet {
 
             String centerid = request.getParameter("centerid");
             String group_id = request.getParameter("group_id");
-
+         
+            //SQL String to retrieve transferred materials for given centerid and group_id
+            
             String sql = "SELECT F.ensat_id, F.bio_id, B.biomaterial_date, F.material,  F.aliquot_sequence_id, "
                     + "F.freezer_number, F.freezershelf_number, F.rack_number, F.shelf_number, F.box_number, F.position_number, "
                     + "T.center_id, T.destination_center_id, T.transfered_date, T.status FROM "
@@ -77,7 +79,7 @@ public class GenerateExcel extends HttpServlet {
             } catch (Exception e) {
             }
         }
-        // Actual logic goes here.
+        
         PrintWriter out = response.getWriter();
         //out.print(csv);
         out.println("<h1>" + message + "</h1>");
@@ -86,9 +88,14 @@ public class GenerateExcel extends HttpServlet {
     public File generateExcelFile(ResultSet rs, String group_id) {
         File csv = null;
         try {
-            // TODO code application logic here
+            // Get generated qr code from its location
              String image_name = "qr_" + group_id + ".png";
-             String filePath = "E:/GIT_REPO/ENSAT/web/images/qr_code/"+image_name;
+            // String filePath = "E:/GIT_REPO/ENSAT/web/images/qr_code/"+image_name;
+             
+             // Get QR code path from servelet config parameter value
+             String filePath = getServletContext().getInitParameter("qr_code_path");
+             filePath = filePath + image_name;
+        
              int size = 125;
              String fileType = "png";
              File myFile = new File(filePath);
@@ -126,7 +133,7 @@ public class GenerateExcel extends HttpServlet {
             //Reset the image to the original size
             pict.resize();
  
-          
+           // Set excel collumn names as required
             data.put("1", new Object[]{"ENSAT_ID", "BIO_ID", "MATERIAL_DATE", "MATERIAL" ,"ALIQUOT_SEQUENCE_ID", "FREEZER_NO", "F_SHELF_NO", "RACK_NO", "RACK_SHELF_NO", "BOX", "POSITION", "FROM_CENTER", "TO_CENTER", "TRANSFERRED_DATE"});
             int i = 1;
             while (rs.next()) {
@@ -150,10 +157,14 @@ public class GenerateExcel extends HttpServlet {
             }
 
             //Write the workbook in file system
-            String file_path = "E:\\GIT_REPO\\ENSAT\\web\\exported_files\\Manifest\\Ensat_manifest_" + group_id + ".xlsx";
-          
-            csv = new File(file_path);
+            //String excel_file_path = "E:\\GIT_REPO\\ENSAT\\web\\exported_files\\Manifest\\Ensat_manifest_" + group_id + ".xlsx";
            
+            //Set file path by getting value from servelet config parameter
+            String excel_file_path = getServletContext().getInitParameter("excel_manifest_path");
+            excel_file_path = excel_file_path + "Ensat_manifest_" + group_id + ".xlsx";
+            csv = new File(excel_file_path);
+           
+            // write csv excel file
             FileOutputStream out = new FileOutputStream(csv);
             workbook.write(out);
             out.close();

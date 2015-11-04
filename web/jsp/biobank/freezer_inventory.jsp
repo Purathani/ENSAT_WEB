@@ -14,7 +14,7 @@
 <jsp:useBean id='connect' class='ConnectBean.ConnectBean' scope='session'/>
 <jsp:useBean id='presentation' class='summaryinfo.SummaryInfo' scope='session'/>
 <jsp:useBean id='user' class='user.UserBean'  scope='session'/>
-<jsp:useBean id='generate_manifest' class='com.ensat.qr.GenerateAliquotManifestExcel'  scope='session'/>
+<%--<jsp:useBean id='generate_manifest' class='com.ensat.qr.GenerateAliquotManifestExcel'  scope='session'/>--%>
 
 
 
@@ -89,10 +89,7 @@ if(centerid.equals("")){
 <p><strong>No center selected</strong></p>
 <%
 }else{
-if(request.getParameter("button_export")!=null) 
-{
-  generate_manifest.generateExcelFile();
-}
+
 %>
 
 <%=aliquotsTransferredHtml%>

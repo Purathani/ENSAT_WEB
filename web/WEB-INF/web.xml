@@ -125,4 +125,17 @@
         <servlet-name>GenerateExcel</servlet-name>
         <url-pattern>/GenerateExcel</url-pattern>
     </servlet-mapping>
+    
+      <context-param>
+        <description>Location of QR code</description>
+        <param-name>qr_code_path</param-name>
+        <param-value>E:\GIT_REPO\ENSAT\web\images\qr_code\</param-value>
+       </context-param>
+       
+       <context-param>
+        <description>Location of Excel Manifest</description>
+        <param-name>excel_manifest_path</param-name>
+        <param-value>E:\GIT_REPO\ENSAT\web\exported_files\Manifest\</param-value>
+       </context-param>
+       
 </web-app>

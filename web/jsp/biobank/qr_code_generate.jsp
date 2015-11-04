@@ -33,10 +33,14 @@ PropertyConfigurator.configure(log4jConfigFile);
 String username = user.getUsername();
 logger.debug("('" + username + "') - materials_used.jsp");
 
+//Get trans_id from url parameter
 String transfer_group_id = request.getParameter("trans_id");
 
+//Set qr image name and path with its trans_group_id
 int biomaterial_transfer_group_id = Integer.parseInt(transfer_group_id);
 String image_path = "./images/qr_code/qr_" + transfer_group_id + ".png";
+
+//Generate QR code with encoded transfer_group_id
 qr_generate.generate_qr_code(biomaterial_transfer_group_id);
 
 String outputHtml = " <table> <tr> <td> <img src='" + image_path + "'/> </form></td></tr></table>";
