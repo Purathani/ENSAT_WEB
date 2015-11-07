@@ -19,7 +19,9 @@ import java.util.Vector;
 import java.util.StringTokenizer;
 
 import ConnectBean.ConnectionAuxiliary;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -2415,11 +2417,16 @@ public class SummaryInfo {
         String outputHtml = "";
         Date today = new Date();
         String transferd_date = new SimpleDateFormat("yyyy-MM-dd").format(today);
+        
+        Calendar calReturn = Calendar.getInstance();
+        calReturn.add(Calendar.DATE, -30);
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+        String transDate = formatDate.format(calReturn.getTime());
            
         try {
-            String sql = "SELECT distinct acc_biomaterial_transfer_group_id from acc_biomaterial_aliquots_transfer where transfered_date = ?";
+            String sql = "SELECT distinct acc_biomaterial_transfer_group_id from acc_biomaterial_aliquots_transfer where transfered_date >= ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, transferd_date);
+            ps.setString(1, transDate);
             
             ResultSet rs = ps.executeQuery();
             Vector<String> transIds = new Vector<String>();
